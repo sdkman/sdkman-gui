@@ -44,4 +44,12 @@ class GvmGuiController {
             model.versions.addAll(versions)
         }
     }
+
+    def quitAction = {ActionEvent evt = null ->
+        ApplicationHolder.getApplication().shutdown();
+    }
+
+    def aboutAction = {ActionEvent evt = null ->
+        println("About")
+    }
 }
