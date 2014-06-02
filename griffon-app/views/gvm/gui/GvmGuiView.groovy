@@ -1,6 +1,6 @@
 package gvm.gui
 
-import javax.swing.ListSelectionModel
+import javax.swing.*
 
 application(title: 'gvm-gui',
         preferredSize: [640, 400],
@@ -21,20 +21,22 @@ application(title: 'gvm-gui',
     }
 
     migLayout(layoutConstraints: 'fill', columnConstraints: '[40%][]')
-    scrollPane(preferredSize: [320, 300]) { 
+    scrollPane(preferredSize: [320, 300]) {
         list(model: eventListModel(source: model.candidates), selectionMode: ListSelectionModel.SINGLE_SELECTION,
-                mouseClicked: { e ->
-//            if (e.clickCount != 2) return
-                    int selectionIndex = e.source.locationToIndex(e.point)
-                    model.selectedCandidate = (selectionIndex > -1) ? model.candidates[selectionIndex] : null
-                },
-                cellRenderer: new CandidateCellRenderer()
         )
+        mouseClicked: { e ->
+            //if (e.clickCount != 2) return
+            int selectionIndex = e.source.locationToIndex(e.point)
+            model.selectedCandidate = (selectionIndex > -1) ? model.candidates[selectionIndex] : null
+        },
+        cellRenderer: new CandidateCellRenderer()
     }
     scrollPane(preferredSize: [320, 300]) {
-        table {
-            tableFormat = defaultTableFormat(columnNames: ['Name'])
-            eventTableModel(source: model.versions, format: tableFormat)
-        }
+        list(model: eventListModel(source: model.versions), selectionMode: ListSelectionModel.SINGLE_SELECTION,
+        mouseClicked: { e ->
+            //if (e.clickCount != 2) return
+            //int selectionIndex = e.source.locationToIndex(e.point)
+            //model.selectedVersions = (selectionIndex > -1) ? model.versions[selectionIndex] : null
+        })
     }
 }
