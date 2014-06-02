@@ -27,7 +27,9 @@ application(title: 'gvm-gui',
 //            if (e.clickCount != 2) return
                     int selectionIndex = e.source.locationToIndex(e.point)
                     model.selectedCandidate = (selectionIndex > -1) ? model.candidates[selectionIndex] : null
-                })
+                },
+                cellRenderer: new CandidateCellRenderer()
+        )
     }
     scrollPane(preferredSize: [320, 300]) {
         table {
