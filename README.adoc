@@ -1,0 +1,7 @@
+= gvm-gui
+
+
+A Griffon GUI for GVM http://gvmtool.net
+
+= Setup IDE
+griffon integrate-with --idea
