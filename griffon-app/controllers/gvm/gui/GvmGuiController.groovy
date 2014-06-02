@@ -7,8 +7,10 @@ import java.awt.event.ActionEvent
 
 class GvmGuiController {
     // these will be injected by Griffon
-    GriffonModel model
+    def model
     def view
+
+    def gvmClient = GvmClient.instance()
 
     void mvcGroupInit(Map args) {
         model.addPropertyChangeListener('selectedCandidate', {evt -> refreshVersions()})
@@ -31,11 +33,10 @@ class GvmGuiController {
             model.versions.clear()
         }
 
-        if (!model.selectedCandidate) {
-            return
-        }
+        if (!model.selectedCandidate) return
+
         def selectedCandidate = model.selectedCandidate
-        def versions = GvmClient.instance().getVersionsFor(selectedCandidate.name)
+        def versions = gvmClient.getVersionsFor(selectedCandidate.name)
 
         log.info("Refreshed versions for candidate $selectedCandidate")
         log.debug("${versions*.name}")
