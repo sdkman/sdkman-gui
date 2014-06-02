@@ -1,7 +1,10 @@
 package gvm.gui
 
-import groovy.beans.Bindable
+import ca.odell.glazedlists.BasicEventList
+import ca.odell.glazedlists.EventList
+import net.gvmtool.client.Candidate
 
 class GvmGuiModel {
-   // @Bindable String propName
+    @Bindable Candidate selectedCandidate
+    EventList<Candidate> candidates = new BasicEventList<>()
 }
