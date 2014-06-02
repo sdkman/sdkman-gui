@@ -12,7 +12,7 @@ application(title: 'gvm-gui',
                      imageIcon('/griffon-icon-32x32.png').image,
                      imageIcon('/griffon-icon-16x16.png').image]) {
     migLayout(layoutConstraints: 'fill', columnConstraints: '[40%][]')
-    scrollPane(preferredSize: [320, 300]) {        
+    scrollPane(preferredSize: [320, 300]) { 
         list(model: eventListModel(source: model.candidates), selectionMode: ListSelectionModel.SINGLE_SELECTION,
                 mouseClicked: { e ->
 //            if (e.clickCount != 2) return
