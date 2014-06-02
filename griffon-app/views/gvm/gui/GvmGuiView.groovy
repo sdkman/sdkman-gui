@@ -16,5 +16,4 @@ application(title: 'gvm-gui',
             eventTableModel(source: model.candidates, format: tableFormat)
         }
     }
-    button refreshCandidatesAction
 }
