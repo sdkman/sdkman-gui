@@ -45,11 +45,11 @@ class GvmGuiController {
         }
     }
 
-	def quitAction = {ActionEvent evt = null ->
-		println("Quit")
-	}
+    def quitAction = {ActionEvent evt = null ->
+        ApplicationHolder.getApplication().shutdown();
+    }
 
-	def aboutAction = {ActionEvent evt = null ->
-		println("About")
-	}
+    def aboutAction = {ActionEvent evt = null ->
+        println("About")
+    }
 }
