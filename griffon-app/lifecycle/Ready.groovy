@@ -11,3 +11,6 @@
  * - execInsideUIAsync { // your code }
  * - execInsideUISync { // your code }
  */
+execOutsideUI {
+    app.controllers.'gvm-gui'.refreshCandidates()
+}
