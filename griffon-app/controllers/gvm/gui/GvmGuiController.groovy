@@ -10,6 +10,10 @@ class GvmGuiController {
     GriffonModel model
     def view
 
+    void mvcGroupInit(Map args) {
+        model.addPropertyChangeListener('selectedCandidate', {evt -> refreshVersions()})
+    }
+
     def refreshCandidates(ActionEvent evt = null) {
         List<Candidate> candidates = GvmClient.instance().candidates
 
@@ -19,6 +23,25 @@ class GvmGuiController {
         execInsideUIAsync {
             model.candidates.clear()
             model.candidates.addAll(candidates)
+        }
+    }
+
+    def refreshVersions(ActionEvent evt = null) {
+        execInsideUISync {
+            model.versions.clear()
+        }
+
+        if (!model.selectedCandidate) {
+            return
+        }
+        def selectedCandidate = model.selectedCandidate
+        def versions = GvmClient.instance().getVersionsFor(selectedCandidate.name)
+
+        log.info("Refreshed versions for candidate $selectedCandidate")
+        log.debug("${versions*.name}")
+
+        execInsideUIAsync {
+            model.versions.addAll(versions)
         }
     }
 }
