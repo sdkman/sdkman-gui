@@ -173,7 +173,7 @@ griffon.project.dependency.resolution = {
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime' or 'test' scopes eg.
-        compile('net.gvmtool:gvm-sdk:0.5.5') {
+        compile('net.gvmtool:gvm-sdk:0.5.6') {
             exclude 'groovy-all'
         }
         // runtime 'mysql:mysql-connector-java:5.1.5'
