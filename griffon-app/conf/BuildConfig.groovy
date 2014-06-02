@@ -191,7 +191,8 @@ log4j = {
           'org.springframework',
           'org.apache.karaf',
           'groovyx.net'
-    warn  'griffon'
+    debug 'griffon'
+    trace 'gvm.gui'
 }
 
 
