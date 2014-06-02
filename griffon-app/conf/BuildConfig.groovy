@@ -167,13 +167,15 @@ griffon.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
-        //jcenter()
+        jcenter()
         //bintray(username: 'foo', repository: 'bar')
         //bintray('foo/bar')
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime' or 'test' scopes eg.
-
+        compile('net.gvmtool:gvm-sdk:0.5.5') {
+            exclude 'groovy-all'
+        }
         // runtime 'mysql:mysql-connector-java:5.1.5'
     }
 }
