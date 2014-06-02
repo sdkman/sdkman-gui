@@ -9,6 +9,11 @@ application(title: 'gvm-gui',
   iconImages: [imageIcon('/griffon-icon-48x48.png').image,
                imageIcon('/griffon-icon-32x32.png').image,
                imageIcon('/griffon-icon-16x16.png').image]) {
-    // add content here
-    label('Content Goes Here') // delete me
+    migLayout(layoutConstraints: 'fill', columnConstraints: '[40%][]')
+    scrollPane(preferredSize: [320, 160]) {
+        table {
+            tableFormat = defaultTableFormat(columnNames: ['Name'])
+            eventTableModel(source: model.candidates, format: tableFormat)
+        }
+    }
 }
