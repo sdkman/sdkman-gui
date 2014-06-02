@@ -1,24 +1,24 @@
 package gvm.gui
 
+import net.gvmtool.client.Candidate
+import net.gvmtool.client.GvmClient
+
+import java.awt.event.ActionEvent
+
 class GvmGuiController {
     // these will be injected by Griffon
-    def model
+    GriffonModel model
     def view
 
-    // void mvcGroupInit(Map args) {
-    //    // this method is called after model and view are injected
-    // }
+    def refreshCandidates(ActionEvent evt = null) {
+        List<Candidate> candidates = GvmClient.instance().candidates
 
-    // void mvcGroupDestroy() {
-    //    // this method is called when the group is destroyed
-    // }
+        log.info("Refreshed Candidates")
+        log.debug("${candidates*.name}")
 
-    /*
-        Remember that actions will be called outside of the UI thread
-        by default. You can change this setting of course.
-        Please read chapter 9 of the Griffon Guide to know more.
-       
-    def action = { evt = null ->
+        execInsideUIAsync {
+            model.candidates.clear()
+            model.candidates.addAll(candidates)
+        }
     }
-    */
 }
