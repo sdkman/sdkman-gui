@@ -1,4 +1,5 @@
-staging
 .idea
 *.iml
+out
+staging
 target
