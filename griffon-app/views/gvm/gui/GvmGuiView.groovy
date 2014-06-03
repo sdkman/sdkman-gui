@@ -35,6 +35,7 @@ application(title: 'gvm-gui',
         mouseClicked: { e ->
             //int selectionIndex = e.source.locationToIndex(e.point)
             //model.selectedVersions = (selectionIndex > -1) ? model.versions[selectionIndex] : null
-        })
+        },
+        cellRenderer: new VersionCellRenderer())
     }
 }
